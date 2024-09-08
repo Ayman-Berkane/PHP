@@ -1,4 +1,4 @@
-h1, h2, h3, .nav-link {
+h1, h2, h3, .nav-link, .section, .carousel-item {
     font-family: 'Playfair Display', serif;
     font-weight: 700; /* Bold for headings */
     color: #2c2c2c; /* Slightly lighter black */
@@ -32,6 +32,7 @@ p {
 .text-opacity-100 {
     color: rgba(255, 255, 255, 1); /* Fully opaque text color */
 }
+/*start nav */
 .nav-link {
     position: relative; /* Position relative for the pseudo-element */
     padding-bottom: 0.5rem; /* Space for the underline */
@@ -50,6 +51,24 @@ p {
 }
 .nav-link:hover::after {
     width: 100%; /* Full width on hover */
+}
+
+.section {
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    color: #343a40;
+}
+
+.section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Full width by default */
+    height: 2px;
+    background-color: #343a40;
+    transition: width 0.3s ease; /* This can be kept or removed */
 }
 
 /* Custom styles  */
@@ -88,3 +107,32 @@ p {
     background-color: #343a40; /* Dark background color */
     border: none; /* Remove default border */
 }
+
+.typewriter {
+    overflow: hidden; /* Ensures the text hides as it is being animated */
+    border-right: 0.15em solid black; /* Creates the cursor effect */
+    white-space: nowrap; /* Prevents wrapping */
+    letter-spacing: 0.15em; /* Adjusts the spacing between characters */
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Keyframes for typing animation */
+@keyframes typing {
+    from {
+        width: 0; /* Start with no text visible */
+    }
+    to {
+        width: 100%; /* Show the full text */
+    }
+}
+
+/* Keyframes for blinking cursor effect */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+

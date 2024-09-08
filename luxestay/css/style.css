@@ -1,0 +1,90 @@
+h1, h2, h3, .nav-link {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Bold for headings */
+    color: #2c2c2c; /* Slightly lighter black */
+}
+
+.p {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+p {
+    font-size: 1.125rem; /* Slightly larger for better readability */
+    line-height: 1.7; /* Generous line height */
+    color: #555; /* Medium gray for paragraphs */
+}
+
+.bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+.text-opacity-100 {
+    color: rgba(255, 255, 255, 1); /* Fully opaque text color */
+}
+.nav-link {
+    position: relative; /* Position relative for the pseudo-element */
+    padding-bottom: 0.5rem; /* Space for the underline */
+    text-decoration: none; /* Remove default underline */
+    color: #ffffff; /* White color for text */
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px; /* Thickness of the line */
+    background-color: #ffffff; /* Line color */
+    transition: width 0.3s ease; /* Animation duration and easing */
+}
+.nav-link:hover::after {
+    width: 100%; /* Full width on hover */
+}
+
+/* Custom styles  */
+.carousel-item img {
+    height: 100vh; /* Full height of viewport */
+    object-fit: cover; /* Cover the area of the container */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Background color for controls */
+}
+.position-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Background color with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont {
+    position: relative;
+    color: white; /* Ensure text color is white */
+    text-align: center;
+}
+.cont h5, .cont h2 {
+    margin: 0;
+    opacity: 1; /* Full opacity for text */
+}
+.btn-dark {
+    padding: 5px 30px;
+    border-radius: 20px;
+    font-size: 12px;
+    background-color: #343a40; /* Dark background color */
+    border: none; /* Remove default border */
+}

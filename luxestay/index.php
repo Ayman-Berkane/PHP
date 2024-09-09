@@ -43,7 +43,7 @@
                                     <a class="nav-link text-opacity-100 text-white" href="#rooms">ROOMS</a>
                                 </li>
                                 <li class="nav-item fs-6 mt-2">
-                                    <a class="nav-link text-opacity-100 text-white" href="#">LOCATION</a>
+                                    <a class="nav-link text-opacity-100 text-white" href="#location">LOCATION</a>
                                 </li>
                                 <li class="nav-item fs-6 mt-2">
                                     <a class="nav-link text-opacity-100 text-white" href="#">ACTIVITIES</a>
@@ -111,7 +111,8 @@
                 <div class="position-absolute d-flex justify-content-center align-items-center">
                     <div class="cont">
                         <h5 class="text-opacity-100 typewriter">Discover Your Perfect Escape</h5>
-                        <h2 class="p-2 text-opacity-100 typewriter mt-2">Experience Unmatched Comfort and Elegance<br>in the
+                        <h2 class="p-2 text-opacity-100 typewriter mt-2">Experience Unmatched Comfort and Elegance<br>in
+                            the
                             Heart of Luxury</h2>
                         <div class="card-body d-flex justify-content-center pr-3 mt-2">
                             <button type="button" class="btn btn-dark text-white w-25 p-3 rounded-pill">Get Started
@@ -211,6 +212,16 @@
         </div>
     </div>
     <!--  end-section-Rooms  -->
+
+    <!--  start-section-Location  -->
+    <div class="container" id="location">
+        <div class="row mt-2">
+            <div class="col-12 p-4 d-flex justify-content-center align-items-center fs-3">
+                <a class="section p-3" href="#">LOCATION</a>
+            </div>
+        </div>
+    </div>
+    <!--  end-section-Location   -->
 </div>
 
 

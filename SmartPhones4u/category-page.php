@@ -1,4 +1,12 @@
 <?php include 'back-end.php' ?>
+<?php
+$db = new PDO('mysql:host=localhost;dbname=smartphone4u', 'root', '');
+$query = $db->prepare('SELECT * FROM vendor');
+$query->execute();
+
+$vendors = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -20,6 +28,11 @@
 
     <main>
         <div class="container-fluid bg-transparent my-4 p-3" style="position: relative;">
+            <div class="row p-3">
+                <div class="col-12">
+                    <a href="index.php" class="text-decoration-none">/ Home</a>
+                    <a href="#" class="btn btn-light disabled" tabindex="-1" aria-disabled="true">/ Product page</a>
+                </div>
             <div class="row">
                 <div class="col-12 d-flex justify-content-center align-items-center flex-column">
                     <h2>Welkom bij SmartPhones4u</h2>
@@ -30,11 +43,11 @@
                 <?php foreach ($vendors as $vendor) : ?>
                     <div class="col p-3">
                         <div class="card shadow-sm img-fluid">
-                            <img src="<?= $vendor['img'] ?>" class="card-img-top card-image" alt="<?= $category['name'] ?>">
+                            <img src="<?= $vendor['img'] ?>" class="card-img-top card-image" alt="<?= $vendor['name'] ?>">
                             <div class="card-body">
                                 <h2 class="card-title"><?= $vendor['name'] ?></h2>
                                 <div class="d-grid gap-2 my-4">
-                                    <a href="#" class="btn btn-primary text-white"><?= $vendor['description']?></a>
+                                    <a href="products-page.php?id=<?= $vendor['id'] ?>" class="btn btn-primary text-white"><?= $vendor['description'] ?></a>
                                 </div>
                             </div>
                         </div>

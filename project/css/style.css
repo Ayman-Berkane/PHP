@@ -1,0 +1,107 @@
+/* Achtergrond met 50% doorzichtigheid */
+.bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5); /* Zwarte achtergrond met 50% doorzichtigheid */
+}
+
+/* Volledige dekking van de tekstkleur */
+.text-opacity-100 {
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Start van de navigatie stijlen */
+.nav-link {
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Onderstrepingseffect voor navigatielinks */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+/* Effect bij hoveren over navigatielinks */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Aangepaste stijlen voor de carousel */
+.carousel-item img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Achtergrond voor de carousel navigatieknoppen */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Absolute positie voor overlays */
+.position-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Stijlen voor de content */
+.cont {
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+/* Marges voor in de content */
+.cont h5, .cont h2 {
+    margin: 0;
+    opacity: 1;
+}
+
+/* Stijlen voor de donkere knop */
+.btn-dark {
+    padding: 5px 30px;
+    border-radius: 20px;
+    font-size: 12px;
+    background-color: #343a40;
+    border: none;
+}
+
+/* Animatie voor fade-in en slide-up effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Toepassing van de fade-in animatie */
+.typewriter {
+    animation: fadeInUp 1.5s ease-out forwards; /* Animatie toepassen met vertraging */
+}
+
+/* Animatievertragingen */
+.typewriter-delay-1 {
+    animation-delay: 0s;
+}
+
+.typewriter-delay-2 {
+    animation-delay: 0s;
+}

@@ -1,0 +1,48 @@
+/* Container voor de hartjes */
+.hearts {
+    display: flex;
+    align-items: center;
+}
+
+/* Stijl voor elk hartje */
+.heart {
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Verbergt de radioknoppen (die normaal zichtbaar zijn) */
+.hearts input[type="radio"] {
+    display: none;
+}
+
+/* Kleurt het hartje rood als het is geselecteerd */
+.hearts input[type="radio"]:checked + .heart {
+    color: red;
+}
+
+/* Kleurt het hartje rood als je eroverheen gaat met de muis */
+.heart:hover {
+    color: red;
+}
+
+/* Stijl voor de like-teller (aantal likes) */
+.like-count {
+    font-size: 1rem; /* Grootte van de tekst voor het aantal likes */
+}
+
+/* Zorgt dat een element absoluut wordt gepositioneerd */
+.position-absolute {
+    position: absolute;
+}
+
+/* Zet het element aan de onderkant van de container */
+.bottom-0 {
+    bottom: 0;
+}
+
+/* Zet het element aan de rechterkant van de container */
+.end-0 {
+    right: 0;
+}

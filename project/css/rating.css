@@ -1,0 +1,60 @@
+/* Afbeelding Styling */
+img {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Ster Beoordelingssectie */
+.stars {
+    display: inline-flex;
+    direction: ltr;
+}
+
+/* Verbergen van de Input  */
+.stars input {
+    display: none;
+}
+
+/* Label Styling */
+.stars label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* Gekleurde Ster bij Selectie */
+.stars input:checked ~ label {
+    color: #f5d24f;
+}
+
+/* Hover-effect voor Sterren */
+.stars label:hover,
+.stars label:hover ~ label {
+    color: #f5d24f;
+}
+
+/* Individuele Ster Styling */
+.star {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-right: 5px;
+}
+
+/* Gevulde Ster Styling */
+.star.filled {
+    color: #f5d24f;
+}
+
+/* Container voor de stericonen */
+.stars {
+    display: flex; /* Lijnt sterren uit in een rij */
+    direction: row; /* Stelt de flexrichting in op rij */
+}
+
+/* individuele stericonen */
+.star {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+}

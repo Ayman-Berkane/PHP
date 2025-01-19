@@ -78,7 +78,7 @@ try {
                 </td>
                 <td>
                     <!-- Delete Product Form -->
-                    <form action="delete.php>id=<?php echo $product['id'];?>" method="POST" class="d-inline">
+                    <form action="delete.php>id=<?php echo $product['id']; ?>" method="POST" class="d-inline">
                         <input type="hidden" name="action" value="delete">
                         <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                         <a href="delete.php?id=<?php echo $product['id']; ?>">Delete</a>

@@ -5,25 +5,52 @@ try {
     $db = new PDO('mysql:host=localhost;dbname=smartphone4u', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    $errors = [];
+
     // Update product details
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $vendor = htmlspecialchars($_POST ['vendor']);
+        $vendor = htmlspecialchars($_POST['vendor']);
         $memory = floatval($_POST['memory']);
         $color = htmlspecialchars($_POST['color']);
         $name = htmlspecialchars($_POST['name']);
         $price = floatval($_POST['price']);
 
-        $updateQuery = $db->prepare("INSERT INTO smartphone SET vendor = :vendor, name = :name, memory = :memory, price = :price, color = :color");
-        $updateQuery->bindParam(':name', $name);
-        $updateQuery->bindParam(':vendor', $vendor);
-        $updateQuery->bindParam(':memory', $memory);
-        $updateQuery->bindParam(':color', $color);
-        $updateQuery->bindParam(':price', $price);
-        if ($updateQuery->execute()) {
-            header("Location: index.php?success=Product inserted");
-            exit();
-        } else {
-            echo "Error inserting product!";
+        // Validate individual fields
+        if (empty($vendor)) {
+            $errors['vendor'] = "Vendor name is required.";
+        }
+
+        if (empty($name)) {
+            $errors['name'] = "Product name is required.";
+        }
+
+        if (empty($memory)) {
+            $errors['memory'] = "Memory is required.";
+        }
+
+        if (empty($color)) {
+            $errors['color'] = "Color is required.";
+        }
+
+        if (empty($price)) {
+            $errors['price'] = "Price is required.";
+        }
+
+        // If no errors, insert into the database
+        if (empty($errors)) {
+            $insertQuery = $db->prepare("INSERT INTO smartphone (vendor, name, memory, price, color) VALUES (:vendor, :name, :memory, :price, :color)");
+            $insertQuery->bindParam(':vendor', $vendor);
+            $insertQuery->bindParam(':name', $name);
+            $insertQuery->bindParam(':memory', $memory);
+            $insertQuery->bindParam(':color', $color);
+            $insertQuery->bindParam(':price', $price);
+
+            if ($insertQuery->execute()) {
+                header("Location: index.php?success=Product inserted");
+                exit();
+            } else {
+                echo "Error inserting product!";
+            }
         }
     }
 } catch (PDOException $e) {
@@ -46,23 +73,38 @@ try {
     <form method="post">
         <div class="mb-3">
             <label for="vendor" class="form-label">Vendor Name</label>
-            <input type="text" class="form-control" id="vendor" name="vendor" value="" required>
+            <input type="text" class="form-control" id="vendor" name="vendor" value="<?php echo htmlspecialchars($_POST['vendor'] ?? ''); ?>">
+            <?php if (!empty($errors['vendor'])): ?>
+                <div class="text-danger"><?php echo $errors['vendor']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Product Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="" required>
+            <input type="text" class="form-control" id="name" name="name" value="<?php echo htmlspecialchars($_POST['name'] ?? ''); ?>">
+            <?php if (!empty($errors['name'])): ?>
+                <div class="text-danger"><?php echo $errors['name']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">memory</label>
-            <input type="number" step="0.01" class="form-control" id="memory" name="memory" value="" required>
+            <label for="memory" class="form-label">Memory</label>
+            <input type="number" step="0.01" class="form-control" id="memory" name="memory" value="<?php echo htmlspecialchars($_POST['memory'] ?? ''); ?>">
+            <?php if (!empty($errors['memory'])): ?>
+                <div class="text-danger"><?php echo $errors['memory']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="mb-3">
             <label for="color" class="form-label">Color</label>
-            <input type="text" step="0.01" class="form-control" id="color" name="color" value="" required>
+            <input type="text" class="form-control" id="color" name="color" value="<?php echo htmlspecialchars($_POST['color'] ?? ''); ?>">
+            <?php if (!empty($errors['color'])): ?>
+                <div class="text-danger"><?php echo $errors['color']; ?></div>
+            <?php endif; ?>
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" step="0.01" class="form-control" id="price" name="price" value="" required>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?php echo htmlspecialchars($_POST['price'] ?? ''); ?>">
+            <?php if (!empty($errors['price'])): ?>
+                <div class="text-danger"><?php echo $errors['price']; ?></div>
+            <?php endif; ?>
         </div>
         <button type="submit" class="btn btn-success">Insert</button>
         <a href="index.php" class="btn btn-secondary">Cancel</a>

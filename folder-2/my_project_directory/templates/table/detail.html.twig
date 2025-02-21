@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TableController!{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1></h1>
+
+            <div class="row">
+                {% for detail in details %}
+                    <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <img src="{{ detail.img }}" alt="Pizza Image"
+                                 style="max-height: 300px; object-fit: cover" class="img-fluid">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ detail.name }}</h5>
+                                <p><strong>Price:</strong> ${{ detail.number }}</p>
+                                <a href="#" class="btn btn-danger mt-auto">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>No pizzas available in this category.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

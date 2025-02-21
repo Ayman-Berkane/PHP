@@ -56,7 +56,6 @@ return $this->render('table/index.html.twig', [
         <th scope="col" class="bg-danger text-white">Name</th>
         <th scope="col" class="bg-danger text-white">Description</th>
         <th scope="col" class="bg-danger text-white">Image</th>
-        <th scope="col" class="bg-danger text-white">Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -67,27 +66,16 @@ return $this->render('table/index.html.twig', [
         <td>
             <img src="{{ asset('uploads/' ~ name.img) }}" alt="Pizza Image" class="rounded" style="width: 100px; height: 100px; object-fit: cover;">
         </td>
-        <td class="text-center">
-            <a href="{{ path('app_crud_read', {id: name.id}) }}" class="btn btn-light border-danger btn-sm me-1 text-danger">
-                <i class="bi bi-eye"></i>
-            </a>
-            <a href="{{ path('app_crud_edit', {id: name.id}) }}" class="btn btn-light border-danger btn-sm me-1 text-danger">
-                <i class="bi bi-pencil-square"></i>
-            </a>
-            <form method="post" action="{{ path('app_crud_delete', {id: name.id}) }}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this pizza?');">
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ name.id) }}">
-                <button type="submit" class="btn btn-danger btn-sm">
-                    <i class="bi bi-trash"></i>
-                </button>
-            </form>
-        </td>
     </tr>
     {% else %}
     <tr>
-        <td colspan="4" class="text-center text-muted py-4">No pizzas available.</td>
+        <td colspan="4" class="text-center text-muted py-4">No names available.</td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
 
+#14 master detail tables
+make second table for the detail
+make a detail twig page into the table template map
 

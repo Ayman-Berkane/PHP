@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GenreController!{% endblock %}
+
+{% block body %}
+    <h1>{{ genre.name }}</h1>
+    <p>{{ genre.description }}</p>
+
+    <h2>Films in dit genre:</h2>
+    {% if films is empty %}
+        <p>Er zijn nog geen films in dit genre.</p>
+    {% else %}
+        <ul>
+            {% for film in films %}
+                <li>{{ film.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{{ path('app_genre') }}">Terug naar alle genres</a>
+{% endblock %}

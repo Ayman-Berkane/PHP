@@ -64,7 +64,6 @@ return $this->render('table/index.html.twig', [
         <td class="fw-semibold text-danger">{{ name.name }}</td>
         <td>{{ name.description }}</td>
         <td>
-            <img src="{{ asset('uploads/' ~ name.img) }}" alt="Pizza Image" class="rounded" style="width: 100px; height: 100px; object-fit: cover;">
         </td>
     </tr>
     {% else %}
@@ -79,3 +78,37 @@ return $this->render('table/index.html.twig', [
 make second table for the detail
 make a detail twig page into the table template map
 
+#15 Kies de volgende opties in de command-line prompt:
+php bin/console make:entity Film
+New property name: genre
+Type: ManyToOne
+Target entity: Genre
+Is this field nullable? No
+
+#16 detail:
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GenreController!{% endblock %}
+
+{% block body %}
+<h1>{{ genre.name }}</h1>
+<p>{{ genre.description }}</p>
+
+<h2>Films in dit genre:</h2>
+{% if films is empty %}
+<p>Er zijn nog geen films in dit genre.</p>
+{% else %}
+<ul>
+    {% for film in films %}
+    <li>{{ film.name }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{{ path('app_genre') }}">Terug naar alle genres</a>
+{% endblock %}
+
+
+17:
+php bin/console make:crud Genre
+php bin/console make:crud Film

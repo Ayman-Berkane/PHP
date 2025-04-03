@@ -100,3 +100,6 @@ Is this field nullable? No
 
 🛠️ Step 14: Generate CRUD Operations
 php bin/console make:crud EntityName
+
+rm src/Controller/GenreController.php
+rm templates/genre/index.html.twig

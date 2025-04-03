@@ -25,6 +25,9 @@ class Detail
     #[ORM\Column(length: 255)]
     private ?string $img = null;
 
+    #[ORM\ManyToOne(inversedBy: 'details')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +72,18 @@ class Detail
     public function setImg(string $img): static
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

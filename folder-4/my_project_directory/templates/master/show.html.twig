@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ master.name }} Details{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="display-4">{{ master.name }}</h1>
+        <p class="lead">{{ master.description }}</p>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Master Details</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>ID:</strong> {{ master.id }}</p>
+                <p><strong>Name:</strong> {{ master.name }}</p>
+                <p><strong>Description:</strong> {{ master.description }}</p>
+            </div>
+        </div>
+
+        <a href="{{ path('app_master_index') }}" class="btn btn-primary mt-3">Back to list</a>
+    </div>
+{% endblock %}

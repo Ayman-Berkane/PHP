@@ -103,3 +103,14 @@ php bin/console make:crud EntityName
 
 rm src/Controller/GenreController.php
 rm templates/genre/index.html.twig
+
+15:
+
+// Show Genre with Films Route: Display films for a specific genre
+#[Route('/{id}/detail', name: 'app_master_detail', methods: ['GET'])]
+public function showFilms(Detail $detail): Response
+{
+return $this->render('master/show.html.twig', [
+'detail' => $detail,
+]);
+}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Master index{% endblock %}
+
+{% block body %}
+    <h1>Master index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for master in masters %}
+            <tr>
+                <td>{{ master.id }}</td>
+                <td>{{ master.name }}</td>
+                <td>{{ master.description }}</td>
+                <td>
+                    <a href="{{ path('app_master_show', {'id': master.id}) }}">show</a>
+                    <a href="{{ path('app_master_edit', {'id': master.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_master_new') }}">Create new</a>
+{% endblock %}
